@@ -1,0 +1,34 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome Gamers !{% endblock %}
+
+{% block body %}
+    <br>
+    <h2 align="center">List of games</h2><br>
+    <div class="container">
+        <div class="col-12">
+            <div class="row">
+                {% for show in showAll %}
+                    <ul>
+                        <div class="card text-white bg-primary mb-6" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ show.name }}</h5>
+                                <p class="card-text">
+                                <div>Released: {{ show.released|date('Y-m-d') }}</div>
+                                <div>Platforms: {{ show.platform }}
+                                </div>
+                                <div>Rating: {{ show.rating }}/5</div>
+                                </p>
+                            </div>
+                            <div>
+                                <video class="card-img-top" src="{{ show.video }}" controls></video>
+                            </div>
+                        </div>
+                    </ul>
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
